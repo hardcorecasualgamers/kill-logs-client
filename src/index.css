@@ -1,0 +1,422 @@
+/* vars */
+:root {
+  --dark-color: black;
+  --light-color: #E3E3E3;
+  --red: #530000;
+  --blue: #000D53;
+  --yellow: #F2DA00;
+}
+
+/* fonts */
+@font-face {
+  font-family: 'LifeCraftRegular';
+  src: url('LifeCraft_Font.ttf') format('truetype');
+}
+
+/* general */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+p {
+  font-family: sans-serif;
+  font-size: 1.1rem;
+  padding: 0.5rem;
+  margin: 0;
+}
+
+html {
+  color: var(--light-color);
+  background: linear-gradient(270deg, var(--blue) 44%, var(--red) 56%);
+  font-family: sans-serif;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.p-container {
+  width: 100%;
+  max-width: 1200px;
+  /* margin: 48px auto 0; */
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.g-wrapper {
+  display: grid;
+  grid-template-columns: repeat(12, [col-start] 1fr);
+}
+
+.btn {
+  font-family: LifeCraftRegular;
+  color: white;
+  background-color: var(--dark-color);
+  font-weight: 100;
+  font-size: 32px;
+  height: 48px;
+  width: 100%;
+  max-width: 200px;
+  border: none;
+  padding: 0;
+  margin: 0;
+  transition: all .2s;
+  position: relative;
+  overflow: hidden;
+  display: block;
+  transition: box-shadow 0.2s ease-out, background-color 0.2s ease-out, transform 0.2s ease-out;
+}
+
+.btn:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 0;
+  padding-top: 0;
+  border-radius: 100%;
+  background-color: #E3E3E388;
+  transform: translate(-50%, -50%);
+}
+
+.btn:active:before {
+  width: 120%;
+  padding-top: 120%;
+  transition: width 0.2s ease-out, padding-top 0.2s ease-out;
+}
+
+.btn:hover {
+  box-shadow: 0 0 6px 2px rgb(255, 255, 255);
+}
+
+/* home */
+.home__header {
+  text-align: center;
+}
+
+.btn_logout {
+  grid-column: col-start 11 / -1;
+}
+
+.home__logo {
+  font-weight: normal;
+  font-family: LifeCraftRegular;
+  font-size: 6rem;
+  padding: 0;
+  margin: 3rem 0 0;
+  grid-column: col-start 3 / 11;
+  grid-row: 1 / 2;
+  cursor: pointer;
+}
+
+.home__description {
+  grid-column: col-start 3 / 11;
+}
+
+.home__logo_kill{
+  color: var(--dark-color);
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: var(--light-color);
+  padding-right: 1rem;
+}
+
+.swords {
+  position: relative;
+}
+
+.loadingH {
+  animation: hFight 3s cubic-bezier(0.3,0.6,0.5,1) alternate infinite;
+}
+
+.loadingA {
+  animation: aFight 3s cubic-bezier(0.2,0,0.5,1) alternate infinite;
+}
+
+.home__logo_sword_h {
+  top: -75px;
+  left: -50px;
+  font-size: 9rem;
+  transform: rotate(45deg);
+  color: var(--dark-color);
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: var(--light-color);
+  box-sizing: border-box;
+  position: absolute;
+  transform-origin: bottom left;
+}
+
+.home__logo_sword_a {
+  top: -75px;
+  left: 38px;
+  font-size: 9rem;
+  transform: rotate(-45deg);
+  color: var(--yellow);
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: var(--light-color);
+  box-sizing: border-box;
+  position: absolute;
+  transform-origin: bottom right;
+}
+
+.home__logo_logs {
+  color: var(--yellow);
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: var(--light-color);
+  margin-left: 3.5rem;
+}
+
+.login-container {
+  grid-column: col-start 3 / 11;
+  margin-top: 1rem;
+}
+
+.group {
+  margin: 15px auto;
+  font-size: 1.4rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.email-input, .password-input {
+  width: 80%;
+}
+
+.btn_login {
+  grid-column: col-start 3 / 11;
+  margin: 15px auto;
+}
+
+.home__main {
+  margin-top: 1rem;
+  justify-items: center;
+  grid-row-gap: 1rem;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  grid-column: col-start 2 / 5;
+  justify-self: start;
+}
+
+.character-text {
+  font-size: 2rem;
+  font-family: LifeCraftRegular;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  grid-column: col-start 6 / -1;
+  justify-self: start;
+}
+
+/* Dropdown Button */
+.dropbtn {
+  font-family: LifeCraftRegular;
+  color: white;
+  background-color: var(--dark-color);
+  font-weight: 100;
+  font-size: 32px;
+  height: 48px;
+  width: 225px;
+  border: none;
+  padding: 0;
+  margin: 0;
+  transition: all .2s;
+  position: relative;
+  overflow: hidden;
+  display: block;
+  transition: box-shadow 0.2s ease-out, background-color 0.2s ease-out, transform 0.2s ease-out;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 250px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-item {
+  color: black;
+  padding: 12px 16px;
+  border: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-item:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on click */
+.show {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  box-shadow: 0 0 6px 2px rgb(255, 255, 255);
+}
+
+.dir-label {
+  grid-column: col-start 2 / 12;
+}
+
+.btn_dir {
+  grid-column: col-start 2 / 6;
+  justify-self: start;
+  align-self: center;
+}
+
+.path-text {
+  font-size: 2rem;
+  font-family: LifeCraftRegular;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  grid-column: col-start 6 / -1;
+  justify-self: start;
+}
+
+.logging-label{
+  grid-column: col-start 2 / 12;
+}
+
+.btn_toggleStart {
+  grid-column: col-start 2 / 12;
+  margin-top: 3rem;
+}
+
+.popup {
+  display: grid;
+  position: fixed;
+  width: 300px;
+  height: 400px;
+  top: 20vh;
+  left: calc(50% - 150px);
+  box-shadow: 0px 3px 4px 1px hsla(0, 6%, 25%, 0.5);
+  z-index: 10;
+  transform: scale(1.5) translate3d(-300px, -200px, 0) rotateX(0deg) rotateY(90deg) rotateZ(-30deg);
+}
+
+.popup__inner {
+  width: 300px;
+  height: 400px;
+  background: url(./parchment.png) no-repeat center/contain;
+  align-items: center;
+  display: flex;
+  text-align: justify;
+  text-indent: 15px;
+  padding: 17px;
+}
+
+.popup__inner_content {
+  color: var(--dark-color);
+  font-family: 'LifeCraftRegular';
+  font-size: 2rem;
+  width: 100%;
+  word-break: break-word;
+  text-align: center;
+}
+
+.showPopup {
+  animation: slideIn 0.6s alternate forwards;
+}
+
+@keyframes slideIn {
+  100% {
+    transform: scale(1) translate3d(0,0,0) rotateX(0) rotateY(0) rotateZ(-10deg);
+  }
+}
+
+@keyframes hFight {
+  0% {
+    transform: rotate(45deg);
+  }
+  15% {
+    transform: rotate(-45deg);
+  }
+  20% {
+    transform: rotate(45deg);
+  }
+  34% {
+    transform: rotate(-45deg);
+  }
+  40% {
+    transform: rotate(45deg);
+  }
+  53% {
+    transform: rotate(-45deg);
+  }
+  60% {
+    transform: rotate(45deg);
+  }
+  72% {
+    transform: rotate(-45deg);
+  }
+  80% {
+    transform: rotate(45deg);
+  }
+  92% {
+    transform: rotate(-45deg);
+  }
+  100% {
+    transform: rotate(45deg);
+  }
+}
+
+@keyframes aFight {
+  0% {
+    transform: rotate(-45deg);
+  }
+  14% {
+    transform: rotate(45deg);
+  }
+  20% {
+    transform: rotate(-45deg);
+  }
+  32% {
+    transform: rotate(45deg);
+  }
+  40% {
+    transform: rotate(-45deg);
+  }
+  54% {
+    transform: rotate(45deg);
+  }
+  60% {
+    transform: rotate(-45deg);
+  }
+  73% {
+    transform: rotate(45deg);
+  }
+  80% {
+    transform: rotate(-45deg);
+  }
+  92% {
+    transform: rotate(45deg);
+  }
+  100% {
+    transform: rotate(-45deg);
+  }
+}

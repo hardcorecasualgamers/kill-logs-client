@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Kill Logs Client</title>
+  <link rel="stylesheet" href="index.css">
+  <script defer src="render.js"></script>
+</head>
+
+<body>
+  <div class="home">
+    <div class="home__header g-wrapper">
+      <button id="logoutBtn" class='btn btn_logout hidden'>Logout</button>
+      <a id='logo' target='_blank' class='home__logo'>
+        <span class='home__logo_kill'>Kill </span><span class='swords'><span id='hSword'
+            class='home__logo_sword_h'>|</span><span id='aSword' class='home__logo_sword_a'>|</span></span><span
+          class='home__logo_logs'> Logs</span>
+      </a>
+      <p class='home__description'>
+        Client app for uploading real-time world PvP statistics for World of Warcraft Classic
+      </p>
+      <div id='loginContainer' class="login-container">
+        <form id='loginForm'>
+          <div class="group">
+            <label class='label--email' for="email">email</label>
+            <input required class='email-input' type="text" name="" id="email" />
+          </div>
+          <div class="group">
+            <label class='label--password' for="password">password</label>
+            <input required class='password-input' type="password" name="" id="password" />
+          </div>
+          <button class='btn btn_login' type="submit">Login</button>
+        </form>
+      </div>
+    </div>
+    <div id='main' class="home__main g-wrapper hidden">
+      <div class="dropdown">
+        <button id="dropbtn" class="dropbtn">Select character</button>
+        <div id='dropdownContent' class="dropdown-content"></div>
+      </div>
+      <div class="character-text" id="characterText"></div>
+      <div id='dirLabel' class='dir-label'>
+        Choose the directory where your World of Warcraft Classic logs are located (typically C:\Program Files
+        (x86)\World of Warcraft\_classic_\Logs)
+      </div>
+      <button id="dirBtn" class='btn btn_dir'>Choose...</button>
+      <div id='pathText' class='path-text'>/some/path/log</div>
+      <div class="logging-label">Before you begin logging, in-game go to SETTTINGS > SYSTEM > NETWORK and ensure you
+        have "Advanced Combat Logging" enabled. Then type /combatlog in your chat box. This begins the recording of data
+        that the Kill Logs client app will read and send to our server when you click the "Start Logging" button below.
+      </div>
+      <button class="btn btn_toggleStart" id="toggleStartBtn">Start Logging</button>
+    </div>
+    <div id='popup' class='popup'>
+      <div id='popup__inner' class='popup__inner'>
+        <p id="popup__inner_content" class="popup__inner_content">
+        </p>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
